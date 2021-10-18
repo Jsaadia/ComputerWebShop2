@@ -1,0 +1,137 @@
+﻿@{
+
+    ViewBag.Title = "Tashty | Contact Us";
+    Layout = "~/Views/Shared/_LayoutStaticPages.cshtml";
+
+    string username = ViewBag.username;
+    string photo = ViewBag.photo;
+    int profileID = ViewBag.profileID;
+    bool isSeller = ViewBag.isSeller;
+
+}
+@if (profileID == 0)
+{
+    @section headerSection {
+        @Html.Partial("_LayoutStaticHeader")
+    }
+}
+else
+{
+    @section headerSection {
+        @Html.Partial("_LayoutInUserHeader")
+    }
+}
+<section>
+
+    <div style="background-image:url(@Url.Content("~/Content/images/top-headerbg.jpg")); padding: 11% 0;" class="text-center">
+        <h2 style="color: #fff">Contact Us</h2>
+    </div>
+    <div class="container sectionspc">
+
+        <div class="col-md-6">
+            <h2>Customer Service Enquiries</h2>
+            <p class="font18">
+                Have questions about your order or anything else? <br /><br>
+                Send us an email directly at<br />
+                <i class="pe-7s-mail-open-file"></i> <a href="mailto:support@tashty.com" class="text-info">support@tashty.com</a> or send us a message via the contact form.
+                <br><br>
+                <div style="display: none;">or call us on <br /><i class="pe-7s-call"></i><strong class="text-success"> +44 203 699 9977</strong></div>
+            </p>
+
+            <h4>Want to sell food on Tashty?</h4>
+
+
+            <p>
+                Contact us with your complete details at <a href="mailto:support@tashty.com" class="text-info">support@tashty.com</a> and let us know what you can bring to the table (include information about your cooking experience, skills, and best food items).
+
+                Please note that all orders are placed online via our marketplace. If you want to order food, you can sign in and start browsing available menus near your location.
+            </p>
+            <hr />  <p>Please note we don't currently accept orders over the phone - so if you'd like to place an order, please place it online. </p>
+        </div>
+        <div class="col-md-6">
+            <div class="hpanel">
+                <div class="panel-body">
+                    <div class="page-header" style="margin: 0;">
+                        <h3 class="font-bold">Contact Us</h3>
+                        <p>We'll do Our Best to get back to you as soon as possible</p>
+                    </div>
+                    <form action="#" id="contactfrm">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label>Your Name</label>
+                                <input type="text" id="txtName" value="" class="form-control" name="txtName" required />
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label>Email Address</label>
+                                <input value="" id="txtContactUsEmail" type="email" class="form-control" name="txtEmail" required />
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label>Phone Number</label>
+                                <input type="tel" value="" id="txtPhone" pattern="^[0-9-+s()]*$" class="form-control" name="txtPhone" required />
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label>Message</label>
+                                <textarea class="form-control" id="txtMsg" required></textarea>
+                            </div>
+                        </div>
+                        <div class="text-left">
+                            <button class="btn btn-success btn-block btn-lg has-spinner" type="submit" id="btnSendEmail"><span class="spinnerIn"><i class="fa fa-refresh fa-spin"></i></span>Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+
+    
+    document.getElementById("btnSendEmail").addEventListener("click", function () {
+        document.getElementById("contactfrm").className = "submitted";
+    });
+
+    $("#contactfrm").submit(function (e) {
+        e.preventDefault();
+        updateSubmitButtonText("Processing","btnSendEmail","submit");
+
+        var phone = _get("txtPhone");
+        var name = _get("txtName");
+        var email = _get("txtContactUsEmail");
+        var msg = _get("txtMsg");
+        sendEmailToTashty(phone, name, email, msg)
+    });
+
+
+    function sendEmailToTashty(phone,name,email,msg) {
+
+        var parameters = { 'phone': String(phone), 'name': String(name), 'email': String(email), 'reply': String(msg)};
+            $.ajax({
+                url: '@Url.Content("~/Home/SendContactUsEmail")', //baseURL + 'home/SetCountryData',
+                type: 'POST',
+                data: JSON.stringify(parameters),
+                cache: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data, textStatus, jqXHR) {
+
+                    sleep(10000);
+                    updateSubmitButtonText("submit", "btnSendEmail", "submit");
+                    var response = null;
+                    if (data) {
+                        if (data.obj) {
+                            @*var urls = '@Url.Content("~/Home/Index")';
+                            window.location = urls;*@
+                            toastr.success("Your message has been sent successfully!")
+                        }
+                    }
+                    else { toastr.error("Your message has not been sent try again!")}
+                },//end success
+                error: function (jqXHR, textStatus, errorThrown) {
+                    sleep(10000);
+                    updateSubmitButtonText("submit", "btnSendEmail", "submit");
+                    errorCLog("contact-us :" + errorThrown + textStatus);
+                }//end error
+            });
+        }
+</script>
