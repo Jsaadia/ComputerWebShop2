@@ -9,7 +9,9 @@
     @Html.Partial("_LayoutProductHeader")
 
 }
-
+<link href="@Url.Content("~/Content/styles/slider.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Content/Scripts/bootstrap-slider.js")"></script>
+ 
 <section>
     <div class="container">
         <div class="col-md-4 col-sm-4">
@@ -97,9 +99,10 @@
 </section>
 <script>
     $(document).ready(function () {
+        //alert("show")
         $("#ex2").slider({});
 
         // Without JQuery
-        var slider = new Slider('#ex2', {});
+        //var slider = new Slider('#ex2', {});
     });
 </script>
