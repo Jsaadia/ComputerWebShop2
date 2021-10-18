@@ -20,7 +20,7 @@ $(document).ready(function () {
     });
 
     // Initialize metsiMenu plugin to sidebar menu
-    $('#side-menu').metisMenu();
+  /*  $('#side-menu').metisMenu();*/
 
     // Initialize iCheck plugin
     $('.i-checks').iCheck({
@@ -100,12 +100,12 @@ $(document).ready(function () {
     });
 
     // Initialize tooltips
-    $('.tooltip-demo').tooltip({
-        selector: "[data-toggle=tooltip]"
-    });
+    //$('.tooltip-demo').tooltip({
+    //    selector: "[data-toggle=tooltip]"
+    //});
 
     // Initialize popover
-    $("[data-toggle=popover]").popover();
+   /* $("[data-toggle=popover]").popover();*/
 
     // Move modal to body
     // Fix Bootstrap backdrop issu with animation.css

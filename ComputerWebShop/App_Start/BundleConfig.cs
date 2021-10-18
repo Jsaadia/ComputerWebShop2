@@ -19,12 +19,12 @@ namespace ComputerWebShop
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+            //          "~/Scripts/bootstrap.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            //bundles.Add(new StyleBundle("~/Content/css").Include(
+            //          "~/Content/bootstrap.css",
+            //          "~/Content/site.css"));
 
             /****************************************************************CLIENT SIDE BUNDLES ****************************************************************************************/
 
@@ -35,7 +35,7 @@ namespace ComputerWebShop
             bundles.Add(new StyleBundle("~/Content/ClientStyle").Include(
                 "~/Content/styles/style.css",
                 "~/Content/styles/theme.css",
-                "~/Content/styles/dataTables.bootstrap.min.css",
+             //   "~/Content/styles/dataTables.bootstrap.min.css",
                 "~/Content/styles/slider.css"
             ));
 
@@ -64,7 +64,7 @@ namespace ComputerWebShop
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/ClientVendorScript").Include(
-               // "~/Content/vendor/jquery/dist/jquery.min.js",
+               "~/Content/vendor/jquery/dist/jquery.min.js",
                // "~/Content/vendor/metisMenu/dist/metisMenu.js",
                 "~/Content/vendor/slimScroll/jquery.slimscroll.min.js",
                 "~/Content/vendor/bootstrap/dist/js/bootstrap.min.js",
