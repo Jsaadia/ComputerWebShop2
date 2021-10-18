@@ -9,7 +9,17 @@ namespace ComputerWebShop.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        public ActionResult Index()
+        public ActionResult BrandItems()
+        {
+            return View();
+        }
+
+        public ActionResult Detail()
+        {
+            return View();
+        }
+
+        public ActionResult Items()
         {
             return View();
         }

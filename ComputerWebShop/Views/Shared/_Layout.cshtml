@@ -35,8 +35,16 @@
 
     @RenderSection("scripts", required: false)
 
-
     <script>
+        $(document).ready(function () {
+            $("#ex2").slider({});
+
+            // Without JQuery
+            var slider = new Slider('#ex2', {});
+        });
+    </script>
+    <script>
+
         var url2 = window.location;
         var txt = String(url2);
         $(document).ready(function () {

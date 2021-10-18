@@ -181,6 +181,7 @@
     <Content Include="Content\images\slider-03.jpg" />
     <Content Include="Content\images\steps-bg.jpg" />
     <Content Include="Content\images\steps.png" />
+    <Content Include="Content\scripts\bootstrap-slider.js" />
     <Content Include="Content\scripts\charts.js" />
     <Content Include="Content\scripts\fileinput.js" />
     <Content Include="Content\scripts\homer.js" />
@@ -189,6 +190,7 @@
     <Content Include="Content\styles\fileinput.css" />
     <Content Include="Content\styles\img\green%402x.png" />
     <Content Include="Content\styles\img\green.png" />
+    <Content Include="Content\styles\slider.css" />
     <Content Include="Content\styles\static_custom.css" />
     <Content Include="Content\styles\style.css" />
     <Content Include="Content\styles\theme.css" />
@@ -1896,6 +1898,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1907,14 +1910,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutFooter.cshtml" />
     <Content Include="Views\Shared\_LayoutHeader.cshtml" />
     <Content Include="Views\Home\_ProductList.cshtml" />
     <Content Include="Views\Home\_Search.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutProductHeader.cshtml" />
-    <Content Include="Views\Product\_BrandItems.cshtml" />
+    <Content Include="Views\Product\_Item.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Home\_Items.cshtml" />
+    <Content Include="Views\Product\BrandItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

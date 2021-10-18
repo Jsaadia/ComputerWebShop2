@@ -35,7 +35,8 @@ namespace ComputerWebShop
             bundles.Add(new StyleBundle("~/Content/ClientStyle").Include(
                 "~/Content/styles/style.css",
                 "~/Content/styles/theme.css",
-                "~/Content/styles/dataTables.bootstrap.min.css"
+                "~/Content/styles/dataTables.bootstrap.min.css",
+                "~/Content/styles/slider.css"
             ));
 
             bundles.Add(new StyleBundle("~/Content/ClientFontStyle").Include(
@@ -83,7 +84,8 @@ namespace ComputerWebShop
                 "~/Content/vendor/select2-3.5.2/select2.min.js",
                 "~/Content/vendor/sweetalert/lib/sweet-alert.min.js",
                 "~/Content/vendor/bootstrap-star-rating/js/star-rating.min.js",
-                "~/Scripts/moment.js"
+                "~/Scripts/moment.js",
+                 "~/Scripts/bootstrap-slider.js"
 
                 ));
 
@@ -91,6 +93,7 @@ namespace ComputerWebShop
                     "~/Scripts/Application/home.js",
                     "~/Scripts/Application/product.js",
                     "~/Scripts/Application/common.js"
+                    
                     ));
         }
     }
